@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:xno_game_ui/generated/l10n.dart';
 import 'package:xno_game_ui/provider/room_data_provider.dart';
 import 'package:xno_game_ui/utils/constants.dart';
 import 'package:xno_game_ui/views/scoreboard.dart';
@@ -33,8 +34,8 @@ class _GameBoardState extends State<GameBoard> {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: CustomText(
-                    text:
-                        '${roomDataProvider.roomData['turn']['nickname']}\'s turn',
+                    text: S.current
+                        .turn(roomDataProvider.roomData['turn']['nickname']),
                     textAlign: TextAlign.center,
                     fontSize: 30,
                     shadows: [

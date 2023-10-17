@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:xno_game_ui/generated/l10n.dart';
 import 'package:xno_game_ui/models/player.dart';
 import 'package:xno_game_ui/provider/room_data_provider.dart';
 import 'package:xno_game_ui/screens/game_board.dart';
@@ -49,7 +50,7 @@ class _SameDeviceScreenState extends State<SameDeviceScreen> {
     double size = MediaQuery.of(context).size.width;
     return ScreenView(
       child: ScreenSection(
-        title: 'Player X',
+        title: S.current.playerX,
         bottons: bottonsPressedFunction(
           true,
           isColor1Pressed,
@@ -109,37 +110,37 @@ class _SameDeviceScreenState extends State<SameDeviceScreen> {
               if (color1 == -1) {
                 showSnackBar(
                   context,
-                  'Both of you have to choose a color! 🤪',
+                  S.current.bothColor,
                   red,
                 );
               } else {
                 showSnackBar(
                   context,
-                  'Sorry 😬, player\'s colors have to be different 🤪',
+                  S.current.differentColor,
                   yellow,
                 );
               }
             } else if (color1 == -1) {
               showSnackBar(
                 context,
-                'Sorry 😬, player ✖️ has to choose a color 🤪',
+                S.current.xColor,
                 blue,
               );
             } else if (color2 == -1) {
               showSnackBar(
                 context,
-                'Sorry 😬, player ⭕ has to choose a color 🤪',
+                S.current.oColor,
                 blue,
               );
             } else if (maxRounds == 0) {
               showSnackBar(
                 context,
-                maxRoundsMessage,
+                S.current.maxRoundsMessage,
                 red,
               );
             }
           },
-          text: gameOnMessage,
+          text: S.current.gameOnMessage,
         ),
         sameDevice: true,
         bottonsO: bottonsPressedFunction(

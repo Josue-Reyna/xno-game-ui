@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:socket_io_client/socket_io_client.dart';
+import 'package:xno_game_ui/generated/l10n.dart';
 import 'package:xno_game_ui/models/player.dart';
 import 'package:xno_game_ui/provider/room_data_provider.dart';
 import 'package:xno_game_ui/utils/constants.dart';
@@ -37,7 +38,7 @@ class GameMethods {
       } else if (roomDataProvider.filledBoxes == 10 && winner == '') {
         showSnackBar(
           context,
-          'Draw 😱! ',
+          S.current.draw,
           white,
         );
         await Future.delayed(
@@ -55,7 +56,9 @@ class GameMethods {
         // ignore: use_build_context_synchronously
         showSnackBar(
           context,
-          '${roomDataProvider.player1.nickname} won! ',
+          S.current.wonSms(
+            roomDataProvider.player1.nickname,
+          ),
           white,
         );
         await Future.delayed(
@@ -83,7 +86,9 @@ class GameMethods {
             // ignore: use_build_context_synchronously
             showGameDialog(
               context,
-              '${roomDataProvider.player1.nickname} won the game! 😎🥳🎉',
+              S.current.winnerMessage(
+                roomDataProvider.player1.nickname,
+              ),
             );
           }
         }
@@ -93,7 +98,9 @@ class GameMethods {
         // ignore: use_build_context_synchronously
         showSnackBar(
           context,
-          '${roomDataProvider.player2.nickname} won! ',
+          S.current.wonSms(
+            roomDataProvider.player2.nickname,
+          ),
           white,
         );
 
@@ -122,7 +129,9 @@ class GameMethods {
             // ignore: use_build_context_synchronously
             showGameDialog(
               context,
-              '${roomDataProvider.player2.nickname} won the game! 😎🥳🎉',
+              S.current.winnerMessage(
+                roomDataProvider.player2.nickname,
+              ),
             );
           }
         }

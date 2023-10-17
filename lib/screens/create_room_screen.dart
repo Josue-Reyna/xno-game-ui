@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xno_game_ui/generated/l10n.dart';
 import 'package:xno_game_ui/resources/socket_methods.dart';
 import 'package:xno_game_ui/utils/constants.dart';
 import 'package:xno_game_ui/utils/utils.dart';
@@ -48,7 +49,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
     double size = MediaQuery.of(context).size.width;
     return ScreenView(
       child: ScreenSection(
-        title: 'Create Room',
+        title: S.current.createRoom,
         bottons: bottonsPressedFunction(
           true,
           isColorPressed,
@@ -83,19 +84,19 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               } else {
                 showSnackBar(
                   context,
-                  maxRoundsMessage,
+                  S.current.maxRoundsMessage,
                   red,
                 );
               }
             } else {
               showSnackBar(
                 context,
-                chooseColorMessage,
+                S.current.chooseColorMessage,
                 red,
               );
             }
           },
-          text: 'Create',
+          text: S.current.createButton,
         ),
         sameDevice: false,
         join: false,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:xno_game_ui/generated/l10n.dart';
 import 'package:xno_game_ui/provider/room_data_provider.dart';
 import 'package:xno_game_ui/resources/game_methods.dart';
 import 'package:xno_game_ui/resources/socket_methods.dart';
@@ -50,7 +51,7 @@ Widget bottonsPressedFunction(
 
 CustomButton goBackButton(BuildContext context) => CustomButton(
       onTap: () => Navigator.of(context).pop(),
-      text: goBackMessage,
+      text: S.of(context).goBack,
     );
 
 Widget selectRounds(
@@ -62,14 +63,14 @@ Widget selectRounds(
   return Column(
     children: [
       CustomText(
-        color: Colors.white,
+        color: white,
         shadows: const [
           Shadow(
             blurRadius: 10,
             color: white,
           ),
         ],
-        text: 'Rounds',
+        text: S.current.rounds,
         fontSize: size < 600 ? 20 : 40,
       ),
       Padding(
@@ -205,14 +206,14 @@ void showGameDialog(
                           Navigator.pop(context);
                         }
                       },
-                      text: 'Again',
+                      text: S.current.againButton,
                       color: blue,
                     ),
                   if (again)
-                    const CustomText(
-                      text: '✌️😢',
+                    CustomText(
+                      text: '${S.current.leave}✌️😢',
                       fontSize: 15,
-                      shadows: [
+                      shadows: const [
                         Shadow(
                           blurRadius: 10,
                           color: white,

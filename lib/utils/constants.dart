@@ -34,9 +34,3 @@ const height30 = SizedBox(height: 30);
 const height40 = SizedBox(height: 40);
 const height50 = SizedBox(height: 50);
 const width50 = SizedBox(width: 50);
-
-// Messages
-const maxRoundsMessage = 'Sorry 😬, you have to choose a maximum rounds 🤪';
-const chooseColorMessage = 'Sorry 😬, you have to choose a color 🤪';
-const gameOnMessage = 'Game On!🕹️';
-const goBackMessage = 'Go Back↩️';

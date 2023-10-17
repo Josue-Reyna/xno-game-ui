@@ -21,7 +21,7 @@ class CustomTextField extends StatelessWidget {
         color: backgroundColor,
         boxShadow: [
           BoxShadow(
-            color: Colors.white,
+            color: white,
             blurRadius: 5,
             spreadRadius: 2,
           ),
@@ -35,7 +35,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           errorStyle: const TextStyle(
             backgroundColor: backgroundColor,
-            color: Colors.redAccent,
+            color: red,
           ),
           fillColor: backgroundColor,
           filled: true,

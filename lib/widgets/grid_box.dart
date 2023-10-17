@@ -21,8 +21,8 @@ class GridBox extends StatelessWidget {
     RoomDataProvider roomDataProvider = Provider.of<RoomDataProvider>(context);
     return ConstrainedBox(
       constraints: const BoxConstraints(
-        maxHeight: 500,
-        maxWidth: 500,
+        maxHeight: 400,
+        maxWidth: 400,
       ),
       child: AbsorbPointer(
         absorbing: absorbingPoint,
@@ -38,7 +38,7 @@ class GridBox extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: roomDataProvider.displayElements[index] == ''
-                        ? Colors.white
+                        ? white
                         : roomDataProvider.displayElements[index] == 'O'
                             ? playerColor
                                 .elementAt(roomDataProvider.player2.color)

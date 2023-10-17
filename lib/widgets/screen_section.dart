@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xno_game_ui/generated/l10n.dart';
 import 'package:xno_game_ui/utils/constants.dart';
 import 'package:xno_game_ui/utils/utils.dart';
 import 'package:xno_game_ui/widgets/custom_text.dart';
@@ -57,7 +58,7 @@ class ScreenSection extends StatelessWidget {
                     color: white,
                   ),
                 ],
-                text: 'Player O',
+                text: S.current.playerO,
                 fontSize: size < 600 ? 30 : 50,
                 color: white,
               ),
@@ -74,7 +75,8 @@ class ScreenSection extends StatelessWidget {
                 child: CustomTextField(
                   controller: nameController!,
                   validator: null,
-                  hintText: size < 600 ? 'Nickname' : 'Enter your nickname!',
+                  hintText:
+                      size < 600 ? S.current.nickname : S.current.enterNickname,
                 ),
               ),
             ],

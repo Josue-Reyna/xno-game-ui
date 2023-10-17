@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:xno_game_ui/generated/l10n.dart';
 import 'package:xno_game_ui/provider/room_data_provider.dart';
 import 'package:xno_game_ui/resources/socket_methods.dart';
 import 'package:xno_game_ui/utils/constants.dart';
@@ -68,15 +69,17 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
                   key: _formKey,
                   child: CustomTextField(
                     controller: _gameIdController,
-                    hintText: size.width < 600 ? 'Game ID' : 'Enter Game ID',
+                    hintText: size.width < 600
+                        ? S.current.gameId
+                        : S.current.gameIdEx,
                     validator: (val) {
                       if (val == null || val.isEmpty) {
-                        return 'Enter a game ID';
+                        return S.current.gameIdEmpty;
                       }
                       final isValid =
                           RegExp(r'^[0-9a-fA-F]{24}$').hasMatch(val);
                       if (!isValid) {
-                        return 'Enter a valid ID';
+                        return S.current.gameIdValidate;
                       }
                       return null;
                     },
@@ -92,14 +95,14 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
                       });
                     }
                   },
-                  text: 'Join',
+                  text: S.current.joinButton,
                 ),
                 height20,
                 goBackButton(context),
               ],
             )
           : ScreenSection(
-              title: 'Join Room',
+              title: S.current.joinRoom,
               bottons: bottonsPressedFunction(
                 false,
                 isColorPressed,
@@ -125,18 +128,20 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
                   } else if (color == -1) {
                     showSnackBar(
                       context,
-                      chooseColorMessage,
+                      S.current.chooseColorMessage,
                       blue,
                     );
                   } else {
                     showSnackBar(
                       context,
-                      'Sorry 😬, ${roomDataProvider.roomData['turn']['nickname']} chose that color 🤪',
+                      S.current.sorrySms(
+                        roomDataProvider.roomData['turn']['nickname'],
+                      ),
                       red,
                     );
                   }
                 },
-                text: gameOnMessage,
+                text: S.current.gameOnMessage,
               ),
               sameDevice: false,
               join: true,
